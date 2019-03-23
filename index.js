@@ -97,7 +97,7 @@ class Bitmap {
           transformed = await soRandom(buffer);
           break;
         default:
-          console.log(`Something is wrong. Output not modified.`)
+          console.log(`Something is wrong. Output not modified.`);
           transformed = buffer;
           break;
       }

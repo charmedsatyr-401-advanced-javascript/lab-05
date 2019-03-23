@@ -1,7 +1,7 @@
 {
   "name": "lab-05",
   "version": "1.0.0",
-  "description": "![CF](http://i.imgur.com/7v5ASc8.png) LAB =================================================",
+  "description": "Buffers - Bitmap Transformer",
   "main": "index.js",
   "directories": {
     "lib": "lib"
@@ -11,10 +11,14 @@
   },
   "devDependencies": {
     "eslint": "^5.15.3",
-    "jest": "^24.5.0"
+    "jest": "^24.5.0",
+    "jsdoc": "^3.5.5"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint **/*.js",
+    "test": "jest --coverage --verbose",
+    "watch": "jest --watch --coverage --verbose",
+    "jsdoc": "jsdoc -c ./docs/config/jsdoc.config.json"
   },
   "repository": {
     "type": "git",
