@@ -6,11 +6,11 @@ const { promisify } = require('util');
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 
-const shave = require('./lib/shave.js');
 const angelOfMusic = require('./lib/angelOfMusic.js');
-const soRandom = require('./lib/soRandom.js');
-const randomlyPastel = require('./lib/randomlyPastel.js');
 const greyscale = require('./lib/greyscale.js');
+const randomlyPastel = require('./lib/randomlyPastel.js');
+const shave = require('./lib/shave.js');
+const soRandom = require('./lib/soRandom.js');
 
 /**
  * Bitmap -- receives a file name, used in the transformer to note the new buffer
@@ -85,15 +85,18 @@ class Bitmap {
           transformed = await shave(buffer);
           break;
         case 'angelOfMusic':
+        case 'phantom':
           transformed = await angelOfMusic(buffer);
           break;
         case 'greyscale':
           transformed = await greyscale(buffer);
           break;
         case 'randomlyPastel':
+        case 'pastel':
           transformed = await randomlyPastel(buffer);
           break;
         case 'soRandom':
+        case 'random':
           transformed = await soRandom(buffer);
           break;
         default:
