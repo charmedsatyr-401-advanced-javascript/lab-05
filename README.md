@@ -3,7 +3,7 @@
 
 ## Project Name
 
-### Author: Student/Group Name
+### Author: Joseph Wolfe / Erin Trainor
 
 ### Links and Resources
 * [repo](http://xyz.com)
