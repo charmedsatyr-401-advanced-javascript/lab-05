@@ -55,8 +55,6 @@ class Bitmap {
     parsedBitmap.colorTable = buffer.readInt32LE(COLOR_TABLE_OFFSET);
     parsedBitmap.pixelArray = buffer.readInt32LE(PIXEL_ARRAY_OFFSET);
 
-    // console.log(parsedBitmap);
-
     const colorTable = buffer.slice(PIXEL_ARRAY_OFFSET);
     const tableOfColors = buffer.slice(COLOR_TABLE_OFFSET, PIXEL_ARRAY_OFFSET);
 
@@ -66,7 +64,7 @@ class Bitmap {
     // const num = 6111 - 3 * 112;
     //  const blockheight = 400;
 
-    console.log(parsedBitmap);
+    // console.log(parsedBitmap);
     return parsedBitmap;
   }
   /**
@@ -75,12 +73,18 @@ class Bitmap {
    * @param operation
    */
   async transform(mode) {
-    console.log('Mode:', mode, '->');
+    // console.log('Mode:', mode, '->');
     try {
       const buffer = await readFile(`${this.file}`);
 
+      // console.log('buffer argument:', buffer);
+
       let transformed;
       switch (mode) {
+        case 'soRandom':
+        case 'random':
+          transformed = await soRandom(buffer);
+          break;
         case 'shave':
           transformed = await shave(buffer);
           break;
@@ -95,20 +99,16 @@ class Bitmap {
         case 'pastel':
           transformed = await randomlyPastel(buffer);
           break;
-        case 'soRandom':
-        case 'random':
-          transformed = await soRandom(buffer);
-          break;
         default:
-          console.log(`Something is wrong. Output not modified.`);
+          // console.log(`Something is wrong. Output not modified.`);
           transformed = buffer;
           break;
       }
 
       writeFile(`${__dirname}/transformations/${transformed.output}`, transformed.buffer);
-      console.log(transformed.message);
+      // console.log(transformed.message);
     } catch (err) {
-      console.error('There was an error transforming your file:', err);
+      // console.error('There was an error transforming your file:', err);
     }
   }
 }
@@ -121,3 +121,5 @@ if (!mode) {
 } else if (mode) {
   bitmap.transform(mode);
 }
+
+module.exports = Bitmap;
