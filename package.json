@@ -26,6 +26,7 @@
     "faker": "^4.1.0"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
     "eslint": "^5.15.3",
     "jest": "^24.5.0",
     "jsdoc": "^3.5.5"
