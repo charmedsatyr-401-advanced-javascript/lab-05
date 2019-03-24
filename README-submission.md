@@ -107,11 +107,28 @@
       * Return an object with a buffer key that contains 247 references between the 14408th and 14428th pixel (buffer index)
     * greyscale.js
       * Return an object where the buffer indices at 1144, 1143, and 1142 have been changed to the calculation of the average of their values.
+    * index.js - parse( )
+      * Should return an object
+      * Should return an object with a `fileSize` key
+      * Should return an object with a `fileSize` key that has a number value
+      * Should return an object with a `bytesPerPixel` key
+      * Should return an object with a `bytesPerPixel` key that has a number value
+      * Should return an object with a `height` key
+      * Should return an object with a `height` key that has a number value
+      * Should return an object with a `width` key
+      * Should return an object with a `width` key that has a number value
+      * Should return an object with a `colorPallet` key
+      * Should return an object with a `colorPallet` key that has a number value
+      * Should return an object with a `colorTable` key
+      * Should return an object with a `colorTable` key that has a number value
+      * Should return an object with a `pixelArray` key
+      * Should return an object with a `pixelArray` key that has a number value
 * What assertions need to be / should be made?
-  * Currently the soRandom and randomlyPastel methods are not correctly writing the files when passed through the transform method. Tests are still needed.
-  * We are struggling with testing index.js
-    * Need to test if parse( ) returns an object with the correct key values
-    * Need to test if transform( ) outputs the correct file when passed a specific mode (function( ))
+  * Currently the soRandom and randomlyPastel methods are not correctly writing the files when passed through the transform method. Tests will be needed.
+  * Index.js
+    * Bitmap Class may need imput validation but not sure how to test.
+    * Still need transform tests that use a mock for fs.
+
 
 #### UML
 ![UML IMAGE](../lab-05/lib/assets/bitmap_uml.jpg)
