@@ -3,14 +3,14 @@
 
 ## Bitmap Transformer
 
-### Author: Erin Trainor and Joseph Wolfe
+### Author: Joseph Wolfe and Erin Trainor
 
 ### Links and Resources
-* [pull request](http://xyz.com)
-* [travis](https://www.travis-ci.com/401-advanced-javascript-401d29) [![Build Status](https://www.travis-ci.com/401-advanced-javascript-401d29/lab-05.svg?branch=master)](https://www.travis-ci.com/401-advanced-javascript-401d29/lab-05)
+* [PR](https://github.com/charmedsatyr-401-advanced-javascript/lab-05/pull/1)
+* [![Build Status](https://travis-ci.org/charmedsatyr-401-advanced-javascript/lab-05.svg?branch=submission)](https://travis-ci.org/charmedsatyr-401-advanced-javascript/lab-05)
 
 #### Documentation
-* [jsdoc](docs/index.html)
+* [jsdoc](./docs/index.html)
 
 ### Modules
 #### `angelOfMusic.js`
