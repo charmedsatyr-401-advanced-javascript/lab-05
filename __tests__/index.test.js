@@ -77,6 +77,6 @@ describe('`Bitmap` class', () => {
 
   describe('`transform` method', () => {
     const bitmap = new Bitmap(baldy);
-    it('should return a object', async () => {});
+    xit('should be good...', async () => {});
   });
 });
