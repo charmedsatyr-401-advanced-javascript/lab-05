@@ -8,18 +8,18 @@ const writeFile = promisify(fs.writeFile);
 
 const angelOfMusic = require('./lib/angelOfMusic.js');
 const greyscale = require('./lib/greyscale.js');
-const randomlyPastel = require('./lib/randomlyPastel.js');
 const shave = require('./lib/shave.js');
-const soRandom = require('./lib/soRandom.js');
+// const randomlyPastel = require('./lib/randomlyPastel.js');
+// const soRandom = require('./lib/soRandom.js');
 
 /**
- * Bitmap -- receives a file name, used in the transformer to note the new buffer
- * @param filePath
+ * Bitmap -- receives a path to a file, used in the transformer to note the new buffer
+ * @param {filePath} filePath
  * @constructor
  */
 class Bitmap {
-  constructor(file) {
-    this.file = file;
+  constructor(filePath) {
+    this.file = filePath;
   }
 
   /**
@@ -81,10 +81,10 @@ class Bitmap {
 
       let transformed;
       switch (mode) {
-        case 'soRandom':
-        case 'random':
-          transformed = await soRandom(buffer);
-          break;
+        // case 'soRandom':
+        // case 'random':
+        //   transformed = await soRandom(buffer);
+        //   break;
         case 'shave':
           transformed = await shave(buffer);
           break;
@@ -92,13 +92,14 @@ class Bitmap {
         case 'phantom':
           transformed = await angelOfMusic(buffer);
           break;
+        case 'grayscale':
         case 'greyscale':
           transformed = await greyscale(buffer);
           break;
-        case 'randomlyPastel':
-        case 'pastel':
-          transformed = await randomlyPastel(buffer);
-          break;
+        // case 'randomlyPastel':
+        // case 'pastel':
+        //   transformed = await randomlyPastel(buffer);
+        //   break;
         default:
           // console.log(`Something is wrong. Output not modified.`);
           transformed = buffer;
@@ -106,12 +107,13 @@ class Bitmap {
       }
 
       writeFile(`${__dirname}/transformations/${transformed.output}`, transformed.buffer);
-      // console.log(transformed.message);
+      console.log(transformed.message);
     } catch (err) {
-      // console.error('There was an error transforming your file:', err);
+      console.error('There was an error transforming your file:', err);
     }
   }
 }
+
 const baldy = `${__dirname}/assets/baldy.bmp`;
 const bitmap = new Bitmap(baldy);
 
