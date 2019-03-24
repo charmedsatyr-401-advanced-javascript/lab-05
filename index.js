@@ -101,8 +101,7 @@ class Bitmap {
         //   transformed = await randomlyPastel(buffer);
         //   break;
         default:
-          // console.log(`Something is wrong. Output not modified.`);
-          transformed = buffer;
+          transformed = { buffer, message: 'Something is wrong. Output not modified', output: 'error.bmp' };
           break;
       }
 
