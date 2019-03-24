@@ -160,9 +160,10 @@
     * `Bitmap.parse` and `Bitmap.transform` require testing to show proper integration of `fs.readFile`, and for error handling for `Bitmap` class instantiation with an invalid file path.
     * `transform` require general input and output validation, as well as testing to show proper integration of `fs.writeFile`.
     * `transform` requires error handling for cases when it invokes modules that do not return objects with the required structure. E.g., if `shave.js` returned an empty object after being invoked.
+    * The command line interface for `index.js`'s hardcoded `bitmap` instance has not been tested.
   * Currently the `soRandom.js` and `randomlyPastel.js` modules do not have the intended output when invoked with the `Bitmap.transform` method. Further testing is needed to determine the cause.
 
 
 
 #### UML
-![UML IMAGE](../lab-05/assets/bitmap_uml.jpg)
+![UML IMAGE](./assets/bitmap_uml.jpg)
