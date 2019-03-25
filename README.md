@@ -14,6 +14,7 @@
 
 ### Modules
 #### `index.js`
+#### `bitmap.js`
 #### `angelOfMusic.js`
 #### `greyscale.js`
 #### `shave.js`
@@ -21,8 +22,11 @@
 #### `randomlyPastel.js`
 
 ##### Exported Values and Methods from `index.js`
+`index.js` provides a command line interface for an instance of the `Bitmap` class instantiated with `./assets/bald.bmp`
+
+##### Exported Values and Methods from `bitmap.js`
 ###### `Bitmap(filePath)` -> new instance of `Bitmap` class
- * `index.js` exports a `Bitmap` class that takes a path to a bitmap file as an argument.
+ * `bitmap.js` exports a `Bitmap` class that takes a path to a bitmap file as an argument.
    * E.g., if `bald.bmp` exists in `./assets/`, a new instance `Bitmap` could be instantiated with the following: `const bitmap = new Bitmap('./assets/bald.bmp');`
  * Instances of `Bitmap` have `parse` and `transform` methods that operate on the file with which they were instantiated.
 
@@ -81,7 +85,7 @@
     * `buffer: [A modified version of the input buffer]`
     * `message: 'I feel so colorfully faded'` 
     * `output: 'randomlyPastel.bmp'`
-  * This module is currently not functional.
+  * This module randomizes the colors of the image in `./assets/baldy.bmp` to pastel shades.
 
 ##### Exported Values and Methods from `soRandom.js`
 ###### `soRandom(buffer)` -> `object`
@@ -89,30 +93,34 @@
     * `buffer: [A modified version of the input buffer]`
     * `message: 'A Rainbox Exploded!'` 
     * `output: 'soRandom.bmp'`
-  * This module is currently not functional.
+  * This module randomizes the colors of the image in `./assets/baldy.bmp`.
 
 #### Running the app
   * The app can be run out of the box on an instance of the `Bitmap` class created from `./assets/baldy.bmp`
     * `node index.js` (no string argument) -> invokes the `parse` method
     * The following commands can be used to invoke the `transform` method with functions exported from the indicated modules.
-      * `shave.js`
-        * `node index.js 'shave'`
       * `angelOfMusic.js`
         * `node index.js 'angelOfMusic'`
         * `node index.js 'phantom'`
       * `greyscale.js`
         * `node index.js 'grayscale'`
         * `node index.js 'greyscale'`
-    * Error handling is trigger with any other argument, e.g., `node index.js Whoops`.
-    * N.B.: Other, non-functional modules are indicated in `transform` as dead code, for reference.
-
+      * `shave.js`
+        * `node index.js 'shave'`
+      * `soRandom.js`
+        * `node index.js 'random'`
+        * `node index.js 'soRandom'`
+      * `randomlyPastel.js`
+        * `node index.js 'pastel'`
+        * `node index.js 'randomlyPastel'`
+    * Error handling is triggered with any other argument, e.g., `node index.js Whoops`.
 #### Tests
 * How do you run tests?
   * `npm run test`
   * `npm run watch`
   * `npm run lint`
 * What assertions were made?
-  * `index.js`
+  * `bitmap.js`
     * `parse()`
       * Should return an object
       * Should return an object with a `fileSize` key
@@ -128,7 +136,7 @@
       * Should return an object with a `colorTable` key that has a number value
       * Should return an object with a `pixelArray` key
       * Should return an object with a `pixelArray` key that has a number value
-  * `angelOfMusic.js`, `greyscale.js`, and `shave.js`
+  * `angelOfMusic.js`, `greyscale.js`, `shave.js`, `randomlyPastel.js`, `soRandom.js`
     * Generic module tests
       * Input Tests
         * Should throw an error when it receives a string argument
@@ -154,14 +162,19 @@
       * `greyscale.js`
         * Should return defined when it receives a buffer of at least `1145` length, else it should throw an error.
         * Return an object where the buffer indices at `1144`, `1143`, and `1142` have been changed to the average of their values.
+      * `soRandom.js`
+        * Should return defined when it receives a buffer of at least `1145` length, else it should throw an error.
+      * `randomlyPastel.js`
+        * Should return defined when it receives a buffer of at least `1145` length, else it should throw an error.
 * What assertions need to be / should be made?
   * `index.js`
-    * `Bitmap` class requires input validation for invalid file paths.
-    * `Bitmap.parse` and `Bitmap.transform` require testing to show proper integration of `fs.readFile`, and for error handling for `Bitmap` class instantiation with an invalid file path.
-    * `transform` require general input and output validation, as well as testing to show proper integration of `fs.writeFile`.
-    * `transform` requires error handling for cases when it invokes modules that do not return objects with the required structure. E.g., if `shave.js` returned an empty object after being invoked.
     * The command line interface for `index.js`'s hardcoded `bitmap` instance has not been tested.
-  * Currently the `soRandom.js` and `randomlyPastel.js` modules do not have the intended output when invoked with the `Bitmap.transform` method. Further testing is needed to determine the cause.
+  * `bitmap.js`
+    * `Bitmap` class requires input validation for invalid file paths.
+    * `Bitmap.parse` and `Bitmap.transform` require testing to show proper integration of `fs.readFile`, and for error handling for `Bitmap` class instantiation with an invalid file path. They also need to be tested to ensure they `console.log` as desired.
+    * `transform` requires general input and output validation, as well as testing to show proper integration of `fs.writeFile`.
+    * `transform` requires error handling for cases when it invokes modules that do not return objects with the required structure. E.g., if `shave.js` returned an empty object after being invoked.
+  * `soRandom.js` and `randomlyPastel.js` both use the package `faker` to randomize color values. More module-specific tests could be devised to ensure the desired level of randomization on the desired range.
 
 
 
