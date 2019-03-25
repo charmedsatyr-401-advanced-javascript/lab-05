@@ -1,0 +1,34 @@
+{
+  "name": "lab-05",
+  "version": "1.0.0",
+  "description": "Buffers - Bitmap Transformer",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charmedsatyr-401-advanced-javascript/lab-05.git"
+  },
+  "author": "Joseph Wolfe/Erin Trainor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/charmedsatyr-401-advanced-javascript/lab-05/issues"
+  },
+  "homepage": "https://github.com/charmedsatyr-401-advanced-javascript/lab-05#readme",
+  "scripts": {
+    "jsdoc": "jsdoc -c ./docs/config/jsdoc.config.json",
+    "lint": "eslint **/*.js",
+    "test": "jest --coverage --verbose",
+    "watch": "jest --watch --coverage --verbose"
+  },
+  "dependencies": {
+    "faker": "^4.1.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.3",
+    "jest": "^24.5.0",
+    "jsdoc": "^3.5.5"
+  }
+}
