@@ -179,4 +179,5 @@
 
 
 #### UML
+* N.B.: This UML diagram was drawn before we had fully implemented our code and is slightly outdated.
 ![UML IMAGE](./assets/bitmap_uml.jpg)
